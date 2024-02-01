@@ -1,0 +1,12 @@
+import java.util.Scanner;
+class A extends Thread
+{
+ public void run()
+ {
+ int n=5;
+ for(int i=1;i<=n;i++)
+ {
+ System.out.println(n+" X "+i+" = "+(n*i));
+ }
+ }
+}
