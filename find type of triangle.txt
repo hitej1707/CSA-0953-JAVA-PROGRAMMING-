@@ -1,0 +1,45 @@
+public class Triangle {
+    private double side1;
+    private double side2;
+    private double side3;
+    public Triangle(double s1, double s2, double s3) {
+        side1 = s1;
+        side2 = s2;
+        side3 = s3;
+    }
+    public boolean isRight() {
+        double[] sides = { side1, side2, side3 };
+        java.util.Arrays.sort(sides); 
+        double longestSide = sides[2];
+        return Math.pow(longestSide, 2) == Math.pow(sides[0], 2) + Math.pow(sides[1], 2);
+    }
+    public boolean isScalene() {
+        return !isIsosceles();
+    }
+    public boolean isIsosceles() {
+        return (side1 == side2 && side2 != side3) || (side1 == side3 && side3 != side2) || (side2 == side3 && side3 != side1);
+    }
+    public boolean isEquilateral() {
+        return side1 == side2 && side2 == side3;
+    }
+    public static void main(String[] args) {
+        Triangle triangle1 = new Triangle(3, 4, 5);
+        Triangle triangle2 = new Triangle(2, 2, 3);
+        Triangle triangle3 = new Triangle(5, 5, 5);
+        System.out.println("Triangle 1:");
+        System.out.println("Is Right Triangle: " + triangle1.isRight());
+        System.out.println("Is Scalene Triangle: " + triangle1.isScalene());
+        System.out.println("Is Isosceles Triangle: " + triangle1.isIsosceles());
+        System.out.println("Is Equilateral Triangle: " + triangle1.isEquilateral());
+        System.out.println("\nTriangle 2:");
+        System.out.println("Is Right Triangle: " + triangle2.isRight());
+        System.out.println("Is Scalene Triangle: " + triangle2.isScalene());
+        System.out.println("Is Isosceles Triangle: " + triangle2.isIsosceles());
+        System.out.println("Is Equilateral Triangle: " + triangle2.isEquilateral());
+        System.out.println("\nTriangle 3:");
+        System.out.println("Is Right Triangle: " + triangle3.isRight());
+        System.out.println("Is Scalene Triangle: " + triangle3.isScalene());
+        System.out.println("Is Isosceles Triangle: " + triangle3.isIsosceles());
+        System.out.println("Is Equilateral Triangle: " + triangle3.isEquilateral());
+    }
+}
